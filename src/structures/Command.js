@@ -1,4 +1,4 @@
-lass Command {
+class Command {
   /**
    * Cria um novo comando
    * @param {Object} options - Opções do comando
