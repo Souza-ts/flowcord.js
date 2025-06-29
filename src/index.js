@@ -10,7 +10,7 @@ const { processTagString, processEmbed, processCode, tagFunctions } = require('.
 const path = require('path');
 
 // Nova classe principal que encapsula todos os recursos
-class FlowCord {
+class Flowcord {
   /**
    * Cria uma nova instância do PoolDiscord
    * @param {Object} options - Opções de configuração
