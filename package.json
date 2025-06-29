@@ -1,5 +1,5 @@
 {
-  "name": "flowcord",
+  "name": "@flowing/flowcord",
   "version": "1.0.0",
   "description": "**flowcord.js** é um framework moderno e flexível para criação de bots no Discord, inspirado no `aoi.js`, mas reimaginado para ser mais intuitivo, escalável e poderoso. Ideal tanto para iniciantes quanto para desenvolvedores experientes.",
   "main": "src/index.js",

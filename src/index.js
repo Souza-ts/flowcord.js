@@ -1,5 +1,5 @@
 const { Client: DiscordClient } = require('discord.js');
-const PoolDiscordClient = require('./structures/Client');
+const FlowCordClient = require('./structures/Client');
 const { Command } = require('./structures/Command');
 const { SlashCommand } = require('./structures/SlashCommand');
 const { loadCommands } = require('./functions/loadCommands');
@@ -10,14 +10,14 @@ const { processTagString, processEmbed, processCode, tagFunctions } = require('.
 const path = require('path');
 
 // Nova classe principal que encapsula todos os recursos
-class PoolDiscord {
+class FlowCord {
   /**
    * Cria uma nova instância do PoolDiscord
    * @param {Object} options - Opções de configuração
    */
   constructor(options = {}) {
     // Criar instância do client
-    this.client = new PoolDiscordClient(options).client;
+    this.client = new FlowCordClient(options).client;
     this.token = options.token;
     
     // Criar objeto de banco de dados mock para evitar erros
@@ -305,7 +305,7 @@ class PoolDiscord {
 
 // Exportar tudo o que pode ser útil para os usuários da biblioteca
 module.exports = {
-  PoolDiscord,
+  FlowCord,
   DiscordClient,
   Command,
   SlashCommand,
