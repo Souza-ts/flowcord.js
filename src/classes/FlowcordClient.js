@@ -1,38 +1,105 @@
-// src/classes/FlowcordClient.js
-const { Client, Collection } = require("discord.js");
-const fs = require("fs");
-const path = require("path");
+const { Client, GatewayIntentBits, Partials } = require("discord.js");
+const FlowcordBase = require("./FlowcordBase");
+const LoadCommands = require("./LoadCommands");
+const EventLoader = require("../core/eventLoader");
 
-class FlowcordClient extends Client {
-  constructor(options) {
+class FlowcordClient extends FlowcordBase {
+  /**
+   * Cria uma nova instância do FlowcordClient
+   * @param {object} options - As opções para o cliente
+   */
+  constructor(options = {}) {
     super(options);
-    this.commands = new Collection();
+
+    /**
+     * Cliente do Discord.js
+     * @type {Client}
+     */
+    this.client = new Client({
+      intents: options.intents || [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessageReactions,
+      ],
+      partials: options.partials || [Partials.Message, Partials.Channel, Partials.Reaction],
+    });
+
+    /**
+     * Diretório onde estão os comandos
+     * @type {string}
+     */
+    this.commandsDir = options.commandsDir || "./commands";
+
+    /**
+     * Diretório onde estão os eventos
+     * @type {string}
+     */
+    this.eventsDir = options.eventsDir || "./events";
+
+    /**
+     * Configurações de prefixo
+     * @type {string|string[]}
+     */
+    this.prefix = options.prefix || "!";
+
+    /**
+     * Objeto que armazena todos os comandos
+     * @type {Map<string, any>}
+     */
+    this.commands = new Map();
+
+    /**
+     * Funções customizadas
+     */
+    this.functions = {};
+
+    /**
+     * Banco de dados, se houver
+     */
+    this.database = options.database || null;
+
+    // Iniciar carregamento de comandos e eventos
+    this.loadAll();
   }
 
   /**
-   * Carrega os comandos de uma pasta, lendo os arquivos de cima para baixo.
-   * @param {string} commandsPath - Caminho para a pasta de comandos.
+   * Inicia o bot com o token especificado
+   * @param {string} token
    */
-  loadCommands(commandsPath) {
-    const commandFiles = fs.readdirSync(commandsPath)
-      .filter(file => file.endsWith(".js"))
-      .sort(); // Ordena alfabeticamente para ler de cima para baixo
+  async login(token) {
+    if (!token) throw new Error("Token do bot não foi fornecido.");
+    await this.client.login(token);
+  }
 
-    for (const file of commandFiles) {
-      const filePath = path.join(commandsPath, file);
-      try {
-        const command = require(filePath);
-        if (!command.name || !command.execute) {
-          console.warn(`[Flowcord] Comando "${file}" está faltando 'name' ou 'execute' export.`);
-          continue;
-        }
-        this.commands.set(command.name, command);
-        console.log(`[Flowcord] Comando carregado: ${command.name}`);
-      } catch (error) {
-        console.error(`[Flowcord] Erro ao carregar comando ${file}:`, error);
-      }
-    }
+  /**
+   * Carrega comandos e eventos
+   */
+  loadAll() {
+    // Carrega os eventos do Discord
+    new EventLoader(this).load(this.eventsDir);
+
+    // Carrega comandos
+    new LoadCommands(this).load(this.commandsDir);
+  }
+
+  /**
+   * Registra uma função customizada
+   * @param {string} name
+   * @param {Function} fn
+   */
+  registerFunction(name, fn) {
+    this.functions[name] = fn;
+  }
+
+  /**
+   * Retorna o cliente do Discord.js
+   * @returns {Client}
+   */
+  getClient() {
+    return this.client;
   }
 }
 
-module.exports = { FlowcordClient };
+module.exports = FlowcordClient;
