@@ -1,5 +1,3 @@
-// src/classes/FlowcordBase.js
-
 const EventEmitter = require("events");
 
 class FlowcordBase extends EventEmitter {
