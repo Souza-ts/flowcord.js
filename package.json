@@ -1,38 +1,37 @@
 {
-  "name": "@flowing/flowcord.js",
+  "name": "pool-discord",
   "version": "1.0.0",
-  "description": "**flowcord.js** é um framework moderno e flexível para criação de bots no Discord, inspirado no `aoi.js`, mas reimaginado para ser mais intuitivo, escalável e poderoso. Ideal tanto para iniciantes quanto para desenvolvedores experientes.",
+  "description": "flowcord.js is a next-generation Discord bot framework that combines the power of discord.js with an intuitive, flow-based approach. Designed for modern bot development, it offers both simplicity for beginners and advanced capabilities for experts.",
   "main": "src/index.js",
-  "types": "src/index.d.ts",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "keywords": [
     "discord",
     "bot",
-    "framework",
-    "aoi",
-    "flowcord",
     "discord.js",
-    "modular"
+    "aoi.js",
+    "flowcord",
+    "bot-framework",
+    "easy-bot",
+    "tag-system"
   ],
-  "author": "Souza",
+  "author": "",
   "license": "MIT",
+  "dependencies": {
+    "@discordjs/builders": "^1.7.0",
+    "discord.js": "^14.14.1"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Souza-ts/flowcord.js"
+    "url": "git+https://github.com/Souza-ts/flowcord.js.git"
   },
+  "bugs": {
+    "url": "https://github.com/Souza-ts/flowcord.js/issues"
+  },
+  "homepage": "https://github.com/Souza-ts/flowcord.js#readme",
   "engines": {
     "node": ">=16.9.0"
-  },
-  "scripts": {
-  "test": "node ./test/test.js",
-  "lint": "eslint .",
-  "clean": "rm -rf dist",
-  "build": "npm run clean && mkdir -p dist && cp -r src/* dist/",
-  "prepublishOnly": "npm run build"
-  },
-  "dependencies": {
-    "discord.js": "^14.11.0"
-  },
-  "devDependencies": {
-    "eslint": "^8.0.0"
   }
 }
