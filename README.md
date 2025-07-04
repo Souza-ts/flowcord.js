@@ -1,86 +1,62 @@
-# flowcord.js
+# flowcord.js  
 
-**flowcord.js** é um framework moderno e flexível para criação de bots no Discord, inspirado no `aoi.js`, mas reimaginado para ser mais intuitivo, escalável e poderoso. Ideal tanto para iniciantes quanto para desenvolvedores experientes.
+**flowcord.js** is a next-generation Discord bot framework that combines the power of **discord.js** with an intuitive, flow-based approach. Designed for modern bot development, it offers both simplicity for beginners and advanced capabilities for experts.  
 
-## 🚀 Recursos Principais
+## 🚀 Key Features  
 
-* ✅ Leitura sequencial real (de cima para baixo)
-* ⚙️ Execução estável sem uso inseguro de `eval`
-* 🧠 Suporte a condições e lógica programável
-* 💾 Sistema de variáveis customizáveis com drivers JSON ou Mongo
-* 🔌 Totalmente extensível via plugins e funções personalizadas
+* ✅ **True top-to-bottom execution** - Write code that runs exactly as you see it  
+* ⚙️ **Safe & stable** - No risky `eval` or unpredictable behavior  
+* 🧠 **Smart logic flow** - Built-in conditions and control structures  
+* 💾 **Flexible data** - Custom variables with JSON or MongoDB support  
+* 🔌 **Extensible architecture** - Add functionality through plugins  
 
----
-
-## 📦 Instalação
-
-```
+## 📦 Installation  
+```bash
 npm install flowcord.js
 ```
 
----
-
-## 🧪 Exemplo de uso
-
-```ts
-import { FlowClient } from "flowcord.js";
+## 🧪 Quick Start  
+```js
+const { FlowClient } = require("flowcord.js");
 
 const client = new FlowClient({
-  token: "SEU_TOKEN",
+  token: "YOUR_TOKEN",
   prefix: "!",
   intents: ["Guilds", "GuildMessages", "MessageContent"]
 });
 
 client.command({
   name: "ping",
-  code: `
-    Pong! Seu ping é $pingms
-  `
+  code: `Pong! Your ping is $pingms`
 });
 
 client.login();
 ```
 
----
+## 🛠 Built-in Functions  
+| Function       | Description                  |
+|---------------|----------------------------|
+| `$ping`       | Returns bot API latency    |
+| `$userTag`    | Gets the user's tag        |
+| `$wait[3s]`   | Pauses execution (3 sec)   |
+| `$if/$else`   | Conditional logic          |
 
-## 🛠 Comandos e Funções
-
-| Função          | Descrição                     |
-| --------------- | ----------------------------- |
-| `$ping`         | Mostra o ping da API do bot   |
-| `$userTag`      | Retorna a tag de quem enviou  |
-| `$wait[3s]`     | Aguarda por X segundos        |
-| `$if` / `$else` | Controle de fluxo condicional |
-
----
-
-## 🧩 Crie sua própria função
-
-```ts
-bot.functions.add({
+## 🧩 Custom Functions  
+```js
+client.functions.add({
   name: "$hello",
-  execute: () => "Olá, mundo!"
+  execute: () => "Hello World!" 
 });
 ```
 
----
+## 📚 Documentation  
+Coming soon at: [https://flowcord.js.org](https://flowcord.js.org)  
 
-## 📚 Documentação
+## 🤝 Contributing  
+We welcome PRs! Feel free to open issues or suggest improvements.  
 
-> Em breve: [https://flowcord.js.org](https://flowcord.js.org)
-
----
-
-## 🤝 Contribuindo
-
-Pull requests são bem-vindos! Sinta-se à vontade para abrir issues, sugerir ideias ou contribuir com código.
+## 📄 License  
+MIT  
 
 ---
-
-## 📄 Licença
-
-MIT
-
----
-
-Feito com ❤️ por Souza e a comunidade open source.
+Crafted with ❤️ by Souza and the open-source community.  
