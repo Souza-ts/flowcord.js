@@ -1,6 +1,6 @@
 const EventEmitter = require("events");
 
-class FlowcordBase extends EventEmitter {
+class FlowBase extends EventEmitter {
   /**
    * Cria uma nova instância base do Flowcord
    * @param {object} options - As opções base do Flowcord
@@ -67,4 +67,4 @@ class FlowcordBase extends EventEmitter {
   }
 }
 
-module.exports = FlowcordBase;
+module.exports = FlowBase;
