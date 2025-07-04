@@ -1,2 +1,2 @@
-const { FlowcordClient } = require("./src/classes/FlowcordClient");
-module.exports = { FlowcordClient };
+const { FlowClient } = require("./src/classes/FlowClient");
+module.exports = { FlowClient };
