@@ -1,11 +1,11 @@
 const { Client, GatewayIntentBits, Partials } = require("discord.js");
-const FlowcordBase = require("./FlowcordBase");
+const FlowBase = require("./FlowcordBase");
 const LoadCommands = require("./LoadCommands");
 const EventLoader = require("../core/eventLoader");
 
-class FlowcordClient extends FlowcordBase {
+class FlowClient extends FlowBase {
   /**
-   * Cria uma nova instância do FlowcordClient
+   * Cria uma nova instância do FlowClient
    * @param {object} options - As opções para o cliente
    */
   constructor(options = {}) {
@@ -102,4 +102,4 @@ class FlowcordClient extends FlowcordBase {
   }
 }
 
-module.exports = FlowcordClient;
+module.exports = FlowClient;
