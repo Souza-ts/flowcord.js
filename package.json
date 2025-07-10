@@ -1,37 +1,16 @@
 {
-  "name": "pool-discord",
+  "name": "@flowing/flowcord.js",
   "version": "1.0.0",
-  "description": "flowcord.js is a next-generation Discord bot framework that combines the power of discord.js with an intuitive, flow-based approach. Designed for modern bot development, it offers both simplicity for beginners and advanced capabilities for experts.",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "discord",
-    "bot",
-    "discord.js",
-    "aoi.js",
-    "flowcord",
-    "bot-framework",
-    "easy-bot",
-    "tag-system"
-  ],
-  "author": "",
-  "license": "MIT",
+  "keywords": [],
+  "author": "**flowcord.js** is a next-generation Discord bot framework that combines the power of **discord.js** with an intuitive, flow-based approach. Designed for modern bot development, it offers both simplicity for beginners and advanced capabilities for experts.  ",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
-    "@discordjs/builders": "^1.7.0",
-    "discord.js": "^14.14.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Souza-ts/flowcord.js.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Souza-ts/flowcord.js/issues"
-  },
-  "homepage": "https://github.com/Souza-ts/flowcord.js#readme",
-  "engines": {
-    "node": ">=16.9.0"
+    "colors": "^1.4.0",
+    "discord.js": "^14.19.3"
   }
 }
