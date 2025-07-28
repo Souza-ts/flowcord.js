@@ -6,10 +6,31 @@ const loadCommands = require("../handlers/commandHandler.js");
 const loadEvents = require("../handlers/eventHandler.js");
 
 const INTENT_MAP = {
+
   GUILDS: GatewayIntentBits.Guilds,
+
   GUILD_MEMBERS: GatewayIntentBits.GuildMembers,
+
   GUILD_MESSAGES: GatewayIntentBits.GuildMessages,
-  MESSAGE_CONTENT: GatewayIntentBits.MessageContent
+
+  MESSAGE_CONTENT: GatewayIntentBits.MessageContent,
+
+  // Added new intents
+
+  GUILD_PRESENCES: GatewayIntentBits.GuildPresences,
+
+  GUILD_INVITES: GatewayIntentBits.GuildInvites,
+
+  GUILD_MESSAGE_REACTIONS: GatewayIntentBits.GuildMessageReactions,
+
+  GUILD_MESSAGE_POLLS: GatewayIntentBits.GuildMessagePolls,
+
+  GUILD_MEMBERS: GatewayIntentBits.GuildMembers,
+
+  GUILD_INTEGRATIONS: GatewayIntentBits.GuildIntegrations,
+
+  GUILD_EXPRESSIONS: GatewayIntentBits.GuildExpressions
+
 };
 
 class FlowClient {
